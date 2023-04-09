@@ -42,11 +42,9 @@ const DynamicTableListView = (props) => {
     setCurrentURL(url);
   }, [url]);
   useEffect(() => {
-    console.log("urlischan", currentURL);
     fetchData();
   }, [currentURL]);
 
-  console.log("viewData", typeof viewData[0]);
   return loader ? (
     <LinearIndeterminate />
   ) : (

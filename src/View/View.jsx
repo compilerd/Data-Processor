@@ -18,7 +18,6 @@ const View = () => {
   );
 
   const handleChipsSelection = (selectedChip) => {
-    console.log("selectedChipView", selectedChip.key);
     switch (selectedChip.key) {
       case "cloudCosting":
         setCurrentURL("https://engineering-task.elancoapps.com/api/raw");

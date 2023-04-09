@@ -24,6 +24,11 @@ const listViewClasses = makeStyles(() => ({
   visibilityIcon: {
     color: "#ffffff",
   },
+  title: {
+    color: "#F9CC0B",
+    textTransform: "uppercase",
+    fontFamily: "monospace",
+  },
 }));
 
 export default function ListArray(props) {
@@ -33,14 +38,15 @@ export default function ListArray(props) {
   const classes = listViewClasses();
 
   const handleListItemClick = (event, index, singleViewData) => {
-    console.log("ind", index);
     setSelectedIndex(index);
     listItemSelected(singleViewData);
   };
 
   return (
     <Paper elevation={3} className={classes.rootPaper}>
-      <Typography variant="subtitle1">{title}</Typography>
+      <Typography className={classes.title} variant="h6">
+        {title}
+      </Typography>
       <List
         sx={{
           width: "100%",
@@ -55,7 +61,7 @@ export default function ListArray(props) {
         <Grid container direction="row" spacing={2}>
           {viewData.map((singleViewData, index) => {
             return (
-              <Grid item>
+              <Grid item xs={3}>
                 <ListItemButton
                   selected={index === selectedIndex ? true : false}
                   onClick={(event) =>
